@@ -7,10 +7,10 @@ import { urlFor, client } from "../../client";
 import "./Work.scss";
 
 const Work = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
   const [filterWork, setFilterWork] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
     const query = '*[_type == "works"]';
@@ -39,10 +39,11 @@ const Work = () => {
   return (
     <>
       <h2 className="head-text">
-        My Creative <span>Portflio </span>
+        My Creative <span>Portfolio</span> Section
       </h2>
+
       <div className="app__work-filter">
-        {[`UI/UX`, "Web App", "Mobile App", "React JS", "All"].map(
+        {["UI/UX", "Web App", "Mobile App", "React JS", "All"].map(
           (item, index) => (
             <div
               key={index}
@@ -66,6 +67,7 @@ const Work = () => {
           <div className="app__work-item app__flex" key={index}>
             <div className="app__work-img app__flex">
               <img src={urlFor(work.imgUrl)} alt={work.name} />
+
               <motion.div
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
@@ -98,7 +100,7 @@ const Work = () => {
               </motion.div>
             </div>
 
-            <div className="app__work-content app_flex">
+            <div className="app__work-content app__flex">
               <h4 className="bold-text">{work.title}</h4>
               <p className="p-text" style={{ marginTop: 10 }}>
                 {work.description}
@@ -115,4 +117,8 @@ const Work = () => {
   );
 };
 
-export default AppWrap(MotionWrap(Work, "app_works"), "work", "app__primarybg");
+export default AppWrap(
+  MotionWrap(Work, "app__works"),
+  "work",
+  "app__primarybg"
+);

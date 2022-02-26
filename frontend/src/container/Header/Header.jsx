@@ -49,7 +49,7 @@ const Header = () => {
           transition={{ duration: 1, ease: "easeInOut" }}
           src={images.circle}
           alt="profile_circle"
-          className="overlay-circle"
+          className="overlay_circle"
         />
       </motion.div>
       <motion.div

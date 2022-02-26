@@ -1,4 +1,3 @@
-//TODO: Fix Testimonial scroll icons position
 //TODO: Fix Motion Wrap
 
 import React, { useState, useEffect } from "react";
@@ -46,7 +45,8 @@ const Testimonial = () => {
                 <h5 className="p-text">{test.company}</h5>
               </div>
             </div>
-            <div className="app__testimonial-btns app__flex">
+          </div>
+          <div className="app__testimonial-btns app__flex">
               <div
                 className="app__flex"
                 onClick={() =>
@@ -72,7 +72,6 @@ const Testimonial = () => {
                 <HiChevronRight />
               </div>
             </div>
-          </div>
         </>
       )}
 
@@ -92,7 +91,7 @@ const Testimonial = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Testimonial, "app_testimonial"),
+  MotionWrap(Testimonial, "app__testimonial"),
   "testimonial",
   "app__primarybg"
 );
